@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+}
+
+.break-text {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.btn {
+  @apply hover:bg-gray-50 active:bg-gray-100 cursor-pointer select-none;
+}
+
+.tippy-box[data-theme~='system'] {
+  @apply bg-gray-50 border border-gray-500 border-opacity-30 rounded-md text-gray-700 text-opacity-80 shadow-md font-medium;
+  @apply whitespace-nowrap box-content py-[3px] px-[8px] text-[13px];
+}
+
+.tippy-box[data-animation='system'][data-state='hidden'] {
+  opacity: 0;
+}
+
+.skeleton-box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 15%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0.2) 85%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1s infinite;
+  content: '';
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
